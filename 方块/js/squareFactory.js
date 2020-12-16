@@ -1,0 +1,274 @@
+var square1=function (){
+    //调用square方法
+    square.call(this);
+    this.rotates=[
+        [
+            [0,2,0,0],
+            [0,2,0,0],
+            [0,2,0,0],
+            [0,2,0,0]
+        ],
+        [
+            [0,0,0,0],
+            [2,2,2,2],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [0,2,0,0],
+            [0,2,0,0],
+            [0,2,0,0],
+            [0,2,0,0]
+        ],
+        [
+            [0,0,0,0],
+            [2,2,2,2],
+            [0,0,0,0],
+            [0,0,0,0]
+        ]
+    ]
+}
+square1.prototype=square.prototype;
+var square2=function (){
+    square.call(this);
+    this.fangxiang=0;
+    this.rotates=[
+        [
+            [0,2,0,0],
+            [2,2,2,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,0,0,0],
+            [2,2,0,0],
+            [2,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,2,2,0],
+            [0,2,0,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [0,2,0,0],
+            [2,2,0,0],
+            [0,2,0,0],
+            [0,0,0,0]
+        ]
+    ]
+}
+square2.prototype=square.prototype;
+var square3=function (){
+    square.call(this);
+    this.fangxiang=0;
+    this.rotates=[
+        [
+            [2,2,2,0],
+            [0,0,2,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [0,2,0,0],
+            [0,2,0,0],
+            [2,2,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,0,0,0],
+            [2,2,2,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,2,0,0],
+            [2,0,0,0],
+            [2,0,0,0],
+            [0,0,0,0]
+        ]
+    ]
+}
+square3.prototype=square.prototype;
+var square4=function (){
+    square.call(this);
+    this.fangxiang=0;
+    this.rotates=[
+        [
+            [2,2,2,0],
+            [2,0,0,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,2,0,0],
+            [0,2,0,0],
+            [0,2,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [0,0,2,0],
+            [2,2,2,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,0,0,0],
+            [2,0,0,0],
+            [2,2,0,0],
+            [0,0,0,0]
+        ]
+    ]
+}
+square4.prototype=square.prototype;
+var square5=function (){
+    square.call(this);
+    this.fangxiang=0;
+    this.rotates=[
+        [
+            [2,2,0,0],
+            [2,2,0,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,2,0,0],
+            [2,2,0,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,2,0,0],
+            [2,2,0,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,2,0,0],
+            [2,2,0,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ]
+    ]
+}
+square5.prototype=square.prototype;
+var square6=function (){
+    square.call(this);
+    this.fangxiang=0;
+    this.rotates=[
+        [
+            [0,2,2,0],
+            [2,2,0,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,0,0,0],
+            [2,2,0,0],
+            [0,2,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [0,2,2,0],
+            [2,2,0,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,0,0,0],
+            [2,2,0,0],
+            [0,2,0,0],
+            [0,0,0,0]
+        ]
+    ]
+}
+square6.prototype=square.prototype;
+var square6=function (){
+    square.call(this);
+    this.fangxiang=0;
+    this.rotates=[
+        [
+            [0,2,2,0],
+            [2,2,0,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,0,0,0],
+            [2,2,0,0],
+            [0,2,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [0,2,2,0],
+            [2,2,0,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,0,0,0],
+            [2,2,0,0],
+            [0,2,0,0],
+            [0,0,0,0]
+        ]
+    ]
+}
+square6.prototype=square.prototype;
+var square7=function (){
+    square.call(this);
+    this.fangxiang=0;
+    this.rotates=[
+        [
+            [2,2,0,0],
+            [0,2,2,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [0,2,0,0],
+            [2,2,0,0],
+            [2,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [2,2,0,0],
+            [0,2,2,0],
+            [0,0,0,0],
+            [0,0,0,0]
+        ],
+        [
+            [0,2,0,0],
+            [2,2,0,0],
+            [2,0,0,0],
+            [0,0,0,0]
+        ]
+    ]
+}
+square7.prototype=square.prototype;
+
+var fangkuai=function (){};
+fangkuai.prototype.make=function (index,fangxiang){
+    var s;
+    index+=1;
+    switch (index){
+        case 1:s=new square1();
+        break;
+        case 2:s=new square2();
+        break;
+        case 3:s=new square3();
+        break;
+        case 4:s=new square4();
+        break;
+        case 5:s=new square5();
+        break;
+        case 6:s=new square6();
+        break;
+        case 7:s=new square7();
+        break;
+    }
+    s.origin.x=0;
+    s.origin.y=3;
+    s.rotate(fangxiang);
+    return s;
+}

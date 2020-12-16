@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>
+    </title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="game" class="game"></div>
+<div id="next" class="next"></div>
+<div id="button">
+    <ul>
+        <li><button  class="fal">落</button></li>
+        <li><button  class="top">上</button></li>
+        <li><button  id="chong">重</button></li>
+    </ul>
+    <ul>
+        <li><button  class="left">左</button></li>
+        <li><button  class="down">下</button></li>
+        <li><button  class="right">右</button></li>
+    </ul>
+</div>
+<div class="info">
+    <div>已用时<span id="time">0s</span></div>
+    <div>已得分<span id="score">0</span></div>
+</div>
+
+<script src="js/game.js"></script>
+<script src="js/square.js"></script>
+<script src="js/squareFactory.js"></script>
+<script src="js/local.js"></script>
+<script>
+    var local=new Local();
+    document.getElementById("chong").onclick=function (){
+        local.start();
+    }
+    local.start();
+</script>
+</body>
+</html>

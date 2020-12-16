@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .slideshow {
+            height: 600px;
+            width: 1000px;
+            margin: 0 auto;
+            margin-top: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slideshow .btn {
+            height: 50px;
+            width: 100%;
+            position: absolute;
+            top: 45%;
+            z-index: 2;
+        }
+
+        .slideshow .ra-show {
+            height: 20px;
+            width: auto;
+            position: absolute;
+            bottom: 20px;
+            left: 45%;
+            z-index: 2;
+        }
+
+        .ra-show i {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            border-radius: 50px;
+            background: #efefef;
+            font-size: 12px;
+            line-height: 18px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .slideshow .ra-show .active {
+            background: #ff9000;
+            box-shadow: 0 0 10px #FF9000;
+        }
+
+        .btn span {
+            height: 50px;
+            width: 50px;
+            background-color: rgba(0, 0, 0, 0.2);
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            color: #ffffff;
+        }
+
+        .btn span:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .btn .last-img {
+            float: left;
+        }
+
+        .btn .next-img {
+            float: right;
+        }
+
+        .slideshow ul {
+            position: relative;
+        }
+
+        .slideshow ul li {
+            height: 600px;
+            width: 1000px;
+            list-style: none;
+            position: absolute;
+            display: none;
+        }
+
+        .slideshow ul li:hover {
+            cursor: pointer;
+        }
+
+        .slideshow ul li img {
+            height: 600px;
+            width: 1000px;
+        }
+	</style>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+	</script>
+	<script>
+		$(document).ready(function(){
+			var t=0;
+			$(".last-img").click(function(){
+				$("li").eq(t).hide();
+				$("i").eq(t).removeClass("active");
+				t-=1;
+				if(t==-1){
+					t=4;
+				}
+				$("li").eq(t).fadeIn(1000);
+				$("i").eq(t).addClass("active");
+			});
+			$(".next-img").click(function(){
+				$("li").eq(t).hide();
+				$("i").eq(t).removeClass("active");
+				t+=1;
+				if(t==5){
+					t=0;
+				}
+				$("li").eq(t).fadeIn(1000);
+				$("i").eq(t).addClass("active");
+			});
+			function move(){
+				$("li").eq(t).hide();
+				$("i").eq(t).removeClass("active");
+				t+=1;
+				if(t==5){
+					t=0;
+				}
+				$("li").eq(t).fadeIn(1000);
+				$("i").eq(t).addClass("active");
+			}
+			stop=setInterval(move,1000);
+			$("li").hover(function(){
+				clearInterval(stop);
+			},function(){
+			    stop=setInterval(move,1000);
+			});
+            $("i").hover(function(){
+                clearInterval(stop);
+            },function(){
+                stop=setInterval(move,1000);
+            });
+            $(".btn").hover(function(){
+                clearInterval(stop);
+            },function(){
+                stop=setInterval(move,1000);
+            });
+            $("i").hover(function(){
+                $("li").eq(t).hide();
+                $("i").eq(t).removeClass("active");
+                t = $(this).index();
+                $("li").eq(t).fadeIn(0);
+                $("i").eq(t).addClass("active");
+            });
+		});
+	</script>
+	<body>
+<div class="slideshow">
+    <div class="btn">
+        <span class="last-img"><</span><span class="next-img">></span>
+    </div>
+    <div class="ra-show">
+        <i class="active">1</i>
+        <i>2</i>
+        <i>3</i>
+        <i>4</i>
+        <i>5</i>
+    </div>
+    <ul>
+        <li style="display: block;">
+            <a href="index.html"><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=157973067,4128307438&fm=26&gp=0.jpg" /></a>
+        </li>
+        <li>
+            <a href="index.html"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607537880894&di=8e4eddda5aec7bcb621f2c66d9244cbd&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180418%2F3e01a54231434d1e9d73d29cd91f012c.png" /></a>
+        </li>
+        <li>
+            <a href="index.html"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607537880894&di=a9aea374ac6a44b1c5f38987b8424d4c&imgtype=0&src=http%3A%2F%2Fa1.mzstatic.com%2Fus%2Fr30%2FPurple122%2Fv4%2Fc3%2F75%2F12%2Fc37512d6-0297-6cf3-b306-bb3248d39f45%2Fsc1024x768.jpeg" /></a>
+        </li>
+        <li>
+            <a href="index.html"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607537880893&di=ff01464766c3c456ba5c829b724a469c&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171129%2Fb433e510b63c4298812b631f9714678f.jpeg" /></a>
+        </li>
+        <li>
+            <a href="index.html"><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3783794967,2520704574&fm=26&gp=0.jpg" /></a>
+        </li>
+    </ul>
+</div>
+	</body>
+</html>
