@@ -1,42 +1,110 @@
-function getParameter(index) {
-    if (isNaN(index)) {
-        return '';
+function showMessage(message, warning) {
+    const infoBox = 'alert-success';
+    const infoIcon = 'glyphicon-info-sign';
+    const warningBox = 'alert-warning';
+    const warningIcon = 'glyphicon-warning-sign';
+
+    let messageBox = $('#messageBox');
+    if (warning) {
+        messageBox.removeClass(infoBox).addClass(warningBox);
+        messageBox.find('.message-icon').removeClass(infoIcon).addClass(warningIcon);
+    } else {
+        messageBox.removeClass(warningBox).addClass(infoBox);
+        messageBox.find('.message-icon').removeClass(warningIcon).addClass(infoIcon);
     }
-    let parameters = location.search.split(/\?|&/g);
-    if (!parameters[index + 1]) {
-        return '';
-    }
-    return decodeURIComponent(parameters[index + 1]);
+    messageBox.find('.message-text').html(message);
+    messageBox.stop(null, true, true)
+        .slideDown()
+        .delay(6000)
+        .slideUp('fast');
 }
 
-function switchClass(selector, oldClass, newClass) {
-    $(selector).removeClass(oldClass);
-    $(selector).addClass(newClass);
-}
-
-// 配置参数
-const defaultPlayerId = 1;
-const defaultControllerId = 0;
-var allowedPlayers = [1, 2, 3, 4];
-var allowedControllers = {0: 'xbox white', 1: 'xbox', 5: 'ds4', 8: 'ds4 white'};
-var controllerRebinds = '';
-var controllerId = defaultControllerId;
-var playerId = getParameter(0);
-if (!playerId || isNaN(playerId)) {
-    playerId = defaultPlayerId;
-} else {
-    playerId = parseInt(playerId);
-    if (!allowedPlayers.includes(playerId)) {
-        playerId = defaultPlayerId;
+function openWindow(url, width, height, name) {
+    if (!name) {
+        name = '_self';
     }
+    let widthFeature = '', heightFeature = '';
+    if (width && !isNaN(width)) {
+        widthFeature = ',width=' + parseInt(width);
+    }
+    if (height && !isNaN(height)) {
+        heightFeature = ',height=' + parseInt(height);
+    }
+    window.open(url, name, 'menubar=no,toolbar=no,location=yes,status=no,scrollbars=yes,dependent=no' + widthFeature + heightFeature);
 }
 
-// 设置手柄类型
-if (controllerId != defaultControllerId && allowedControllers[controllerId]) {
-    switchClass('#gamepads .controller', allowedControllers[defaultControllerId], allowedControllers[controllerId]);
+function notChrome() {
+    return navigator && navigator.userAgent && navigator.userAgent.indexOf('Chrome') < 0;
 }
-// 初始化手柄显示
-var gamepadHTML = $("#gamepads .template").html();
-$("#gamepads .controller").append(gamepadHTML);
-// 激活指定手柄
-switchClass('#gamepad-' + (playerId - 1), 'inactive', 'active');
+
+$(function () {
+    $('#copyrightYear').text(new Date().getFullYear());
+    if (notChrome()) {
+        showMessage('注意：本应用程序仅支持 Chrome 浏览器或 OBS 浏览器组件使用。', true);
+    }
+
+    $('.gamepad-menu').click(function () {
+        let targetId = $(this).data('target');
+        $(targetId).data('value', $(this).data('value'))
+            .trigger('focus');
+    });
+
+    $('.gamepad-url')
+        .each(function () {
+            $(this).val($(this).data('value'));
+        })
+        .focus(function () {
+            $(this).val($(this).data('value'));
+            $(this).select();
+            return false;
+        })
+        .blur(function () {
+            $(this).val($(this).data('value'));
+        })
+        .on('copy', function (e) {
+            showMessage(e.target.value + ' 已放入剪贴板！<br/>请将此地址填入 OBS 浏览器来源的 URL 中。');
+            return true;
+        })
+        .on('paste cut', function () {
+            return false;
+        })
+        .keydown(function (e) {
+            if (e.ctrlKey || (e.ctrlKey && e.which == 67)) { // Ctrl+C
+                return true;
+            }
+            return false;
+        })
+        .mouseenter(function () {
+            $(this).focus();
+            return false;
+        })
+        .mousedown(function () {
+            $(this).focus();
+            return false;
+        });
+
+    // 复制 URL
+    let clipboard = new ClipboardJS('.gamepad-copy', {
+        text: function (sender) {
+            let sourceId = $(sender).data('source');
+            return $(sourceId).data('value');
+        }
+    });
+    clipboard.on('success', function (e) {
+        showMessage(e.text + ' 已放入剪贴板！<br/>请将此地址填入 OBS 浏览器来源的 URL 中。');
+    });
+    clipboard.on('error', function (e) {
+        showMessage('复制失败！<br/>请检查浏览器授权，或直接使用 Ctrl+C 复制。', true);
+    });
+    // 测试手柄
+    $('.gamepad-test').click(function () {
+        let sourceId = $(this).data('source');
+        openWindow($(sourceId).data('value'), 850, 700, sourceId);
+        return false;
+    });
+    // 下载
+    $('.btn-download').click(function () {
+        openWindow($(this).data('value'));
+        return false;
+    });
+});
