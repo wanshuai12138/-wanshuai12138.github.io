@@ -1,0 +1,127 @@
+html, body {
+    font-family: sans-serif !important;
+}
+
+.display-none {
+    display: none;
+}
+
+.row-spacer-sm {
+    padding: 10px 0px;
+}
+
+.row-spacer-md {
+    padding: 20px 0px;
+}
+
+.row-spacer-lg {
+    padding: 30px 0px;
+}
+
+.panel-message {
+    height: 80px;
+}
+
+.page-footer {
+    border-top: 1px solid #eee;
+    padding-top: 5px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 0.85em;
+    color: #555555;
+}
+
+.copyright a {
+    color: #555555;
+}
+
+.donate {
+    padding: 5px;
+}
+
+.gamepad-menu {
+    cursor: default;
+}
+
+.gamepad-url {
+    color: #999999;
+    ime-mode: disabled;
+    cursor: default;
+}
+
+/* 配色 gamepad-xbox
+25b7d3
+------
+e8f7fa
+1e95ac
+197a8c
+01758b
+*/
+
+.gamepad-xbox .form-control {
+    border-color: #01758b;
+}
+
+.gamepad-xbox .btn-primary {
+    background-color: #1e95ac;
+    border-color: #01758b;
+}
+
+.gamepad-xbox .btn-primary:hover,
+.gamepad-xbox .btn-primary:active {
+    background-color: #197a8c;
+    border-color: #01758b;
+}
+
+.gamepad-xbox .dropdown-toggle.btn-primary {
+    color: #01758b;
+    border-color: #01758b;
+    background-color: #e8f7fa;
+    border-right: none;
+}
+
+.gamepad-xbox .open > .dropdown-toggle.btn-primary {
+    color: #ffffff;
+    background-color: #1e95ac;
+    border-color: #01758b;
+}
+
+/* 配色 gamepad-ps
+32bea6
+------
+eafbf8
+2b9f8b
+217a6b
+017964
+*/
+
+.gamepad-ps .form-control {
+    border-color: #017964;
+}
+
+.gamepad-ps .btn-primary {
+    background-color: #2b9f8b;
+    border-color: #017964;
+}
+
+.gamepad-ps .btn-primary:hover,
+.gamepad-ps .btn-primary:active {
+    background-color: #217a6b;
+    border-color: #017964;
+}
+
+.gamepad-ps .dropdown-toggle.btn-primary {
+    color: #017964;
+    border-color: #017964;
+    background-color: #eafbf8;
+    border-right: none;
+}
+
+.gamepad-ps .open > .dropdown-toggle.btn-primary {
+    color: #ffffff;
+    background-color: #2b9f8b;
+    border-color: #017964;
+}
